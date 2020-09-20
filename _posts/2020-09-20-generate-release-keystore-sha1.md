@@ -19,17 +19,17 @@ To find out the Android SHA1 fingerprint for release keystore, follow these step
  - Open terminal
  - Change the directory to the JDK bin directory, mine was jdk1.7.0_05 (could be different for you).
 
-```js
+```java
 	cd C:\Program Files\Java\jdk1.7.0_05\bin
 ```
 - Next we have to run the keytool.exe. Use the following line to get the SHA1 fingerprint.
 
-```js
+```java
 keytool -list -v -keystore {keystore_name} -alias {alias_name}
 ```
 
 ## Example:
-```js
+```java
 keytool -list -v -keystore C:\Users\MG\Desktop\test.jks -alias test
 ```
 It will prompt for a password.
@@ -42,7 +42,7 @@ Android SHA1 Fingerprint
 Extracting the SHA1 fingerprint from an Android keystore cannot be simpler than this. Above steps can be used on Windows, Mac and on Linux machines.
 
 For Debug mode:
-```js
+```java
 keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android 
 ```
 
