@@ -1,37 +1,50 @@
 ---
 layout: post
-title:  "使用 JavaScript 创建并下载文件"
-categories: JavaScript
-tags:  文件 下载 JavaScript
-author: HyG
+title:  "Getting Android Release Keystore SHA1 Fingerprint"
+categories: Release SHA1
+tags:  Release Keystore SHA1 Android
+author: Parth Darji
 ---
 
 * content
 {:toc}
 
-本文将介绍如何使用 JavaScript 创建文件，并自动/手动将文件下载。这在导出原始数据时会比较方便。
+This article will introduce how to generate SHA1 for release Keystore.
+This is more convenient and easy method to generate SHA1.
 
-## 先上代码
+## Follow steps
+
+To find out the Android SHA1 fingerprint for release keystore, follow these steps:
+
+ - Open terminal
+ - Change the directory to the JDK bin directory, mine was jdk1.7.0_05 (could be different for you).
 
 ```js
-/**
- * 创建并下载文件
- * @param  {String} fileName 文件名
- * @param  {String} content  文件内容
- */
-function createAndDownloadFile(fileName, content) {
-    var aTag = document.createElement('a');
-    var blob = new Blob([content]);
-    aTag.download = fileName;
-    aTag.href = URL.createObjectURL(blob);
-    aTag.click();
-    URL.revokeObjectURL(blob);
-}
+	cd C:\Program Files\Java\jdk1.7.0_05\bin
+```
+- Next we have to run the keytool.exe. Use the following line to get the SHA1 fingerprint.
+
+```js
+keytool -list -v -keystore {keystore_name} -alias {alias_name}
 ```
 
-很简单对吧，直接调用这个方法，传入文件名和文件内容，程序新建 a 标签，新建 Blob 对象，将文件名赋给 a 标签，同时将 Blob 对象作为 Url 也赋给 a 标签，模拟点击事件，自动下载成功，最后再回收内存。下面我们来看看具体是怎么操作的。
+## Example:
+```js
+keytool -list -v -keystore C:\Users\MG\Desktop\test.jks -alias test
+```
+It will prompt for a password.
+Enter the password, you will get the SHA1 and MD5 fingerprint.
 
 
+![](https://i0.wp.com/www.truiton.com/wp-content/uploads/2015/04/Android-SHA1-Fingerprint-three.jpg?w=682&amp;ssl=1")
+
+Android SHA1 Fingerprint
+Extracting the SHA1 fingerprint from an Android keystore cannot be simpler than this. Above steps can be used on Windows, Mac and on Linux machines.
+
+For Debug mode:
+```js
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android 
+```
 
 
 
