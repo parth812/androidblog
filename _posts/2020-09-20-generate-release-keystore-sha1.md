@@ -30,7 +30,7 @@ keytool -list -v -keystore {keystore_name} -alias {alias_name}
 
 ## Example:
 ```java
-keytool -list -v -keystore C:\Users\MG\Desktop\test.jks -alias test
+keytool -list -v -keystore C:/\Users/\MG/\Desktop/\test.jks -alias test
 ```
 It will prompt for a password.
 Enter the password, you will get the SHA1 and MD5 fingerprint.
