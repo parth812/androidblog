@@ -32,14 +32,14 @@ type: page
 
 ## 联系我
 
-* GitHub：[Gaohaoyang](https://github.com/Gaohaoyang)
-* email：gaohaoyang126@126.com
-* [Weibo](http://weibo.com/3115521wh)
-* [知乎](https://www.zhihu.com/people/gaohaoyang)
-* [Facebook](https://www.facebook.com/gaohaoyang.water)
+* GitHub：[Parth Darji](https://github.com/parth812)
+* LinkedIn：[Parth Darji](https://www.linkedin.com/in/parth-darji-376088a8/)
+* Upwork：[Parth Darji](https://www.upwork.com/o/profiles/users/~01bfb44fa5a465b3d1/)
+* WorknHire：[Parth Darji](https://worknhire.com/Contractor/Profile/parthdarji812) 
+* email：Parthdarji812@gmail.com
+* ko-fi：[Parth Darji](https://ko-fi.com/parthdarji812)
+* [Facebook](https://www.facebook.com/darjiparth812)
 * [Twitter](https://twitter.com/gaohaoyang126)
-* [豆瓣](https://www.douban.com/people/42525035/)
-* [豆瓣音乐人-浩阳的小站](https://site.douban.com/haoyangaiyinyue/)
 
 ## 关于本站
 
