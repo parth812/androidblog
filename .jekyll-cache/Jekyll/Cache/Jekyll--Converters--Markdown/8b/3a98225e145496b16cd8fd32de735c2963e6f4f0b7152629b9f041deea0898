@@ -1,0 +1,42 @@
+I"3<ul id="markdown-toc">
+  <li><a href="#follow-steps" id="markdown-toc-follow-steps">Follow steps</a></li>
+  <li><a href="#example" id="markdown-toc-example">Example:</a></li>
+</ul>
+
+<p>This article will introduce how to generate SHA1 for release Keystore.
+This is more convenient and easy method to generate SHA1.</p>
+
+<h2 id="follow-steps">Follow steps</h2>
+
+<p>To find out the Android SHA1 fingerprint for release keystore, follow these steps:</p>
+
+<ul>
+  <li>Open terminal</li>
+  <li>Change the directory to the JDK bin directory, mine was jdk1.7.0_05 (could be different for you).</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="n">cd</span> <span class="nl">C:</span><span class="err">\</span><span class="nc">Program</span> <span class="nc">Files</span><span class="err">\</span><span class="nc">Java</span><span class="err">\</span><span class="n">jdk1</span><span class="o">.</span><span class="mf">7.0_05</span><span class="err">\</span><span class="n">bin</span>
+</code></pre></div></div>
+<ul>
+  <li>Next we have to run the keytool.exe. Use the following line to get the SHA1 fingerprint.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">keytool</span> <span class="o">-</span><span class="n">list</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">keystore</span> <span class="o">{</span><span class="n">keystore_name</span><span class="o">}</span> <span class="o">-</span><span class="n">alias</span> <span class="o">{</span><span class="n">alias_name</span><span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="example">Example:</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">keytool</span> <span class="o">-</span><span class="n">list</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">keystore</span> <span class="nl">C:</span><span class="err">\</span><span class="nc">Users</span><span class="err">\</span><span class="no">MG</span><span class="err">\</span><span class="nc">Desktop</span><span class="err">\</span><span class="n">test</span><span class="o">.</span><span class="na">jks</span> <span class="o">-</span><span class="n">alias</span> <span class="n">test</span>
+</code></pre></div></div>
+<p>It will prompt for a password.
+Enter the password, you will get the SHA1 and MD5 fingerprint.</p>
+
+<p><img src="https://i0.wp.com/www.truiton.com/wp-content/uploads/2015/04/Android-SHA1-Fingerprint-three.jpg?w=682&amp;ssl=1&quot;" alt="" /></p>
+
+<p>Android SHA1 Fingerprint
+Extracting the SHA1 fingerprint from an Android keystore cannot be simpler than this. Above steps can be used on Windows, Mac and on Linux machines.</p>
+
+<p>For Debug mode:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">keytool</span> <span class="o">-</span><span class="n">list</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">keystore</span> <span class="o">~/.</span><span class="na">android</span><span class="o">/</span><span class="n">debug</span><span class="o">.</span><span class="na">keystore</span> <span class="o">-</span><span class="n">alias</span> <span class="n">androiddebugkey</span> <span class="o">-</span><span class="n">storepass</span> <span class="n">android</span> <span class="o">-</span><span class="n">keypass</span> <span class="n">android</span> 
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,93 @@
+I"†-<ul id="markdown-toc">
+  <li><a href="#follow-steps" id="markdown-toc-follow-steps">Follow steps</a></li>
+</ul>
+
+<p>This article i will introduce how to render PDF from url.
+This is more convenient and easy method to render PDF in android from url without downloading file in local storage.</p>
+
+<h2 id="follow-steps">Follow steps</h2>
+
+<p>To render pdf from url you need library, please add below dependency in your app level gradle file build.gradle(Module:app)</p>
+
+<p><img src="https://i.imgur.com/acqUaUO.png&quot;" alt="" /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="n">implementation</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">github</span><span class="o">.</span><span class="na">barteksc</span><span class="o">:</span><span class="n">android</span><span class="o">-</span><span class="n">pdf</span><span class="o">-</span><span class="nl">viewer:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">2</span><span class="err">'</span>
+</code></pre></div></div>
+<p>Now add below code in your xml file</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	 <span class="o">&lt;</span><span class="n">com</span><span class="o">.</span><span class="na">github</span><span class="o">.</span><span class="na">barteksc</span><span class="o">.</span><span class="na">pdfviewer</span><span class="o">.</span><span class="na">PDFView</span>
+            <span class="nl">android:</span><span class="n">id</span><span class="o">=</span><span class="s">"@+id/pdfView"</span>
+            <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"match_parent"</span>
+            <span class="nl">android:</span><span class="n">layout_weight</span><span class="o">=</span><span class="s">"1"</span>
+            <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"0dp"</span><span class="o">/&gt;</span>
+</code></pre></div></div>
+
+<p>Place below code in your activity inside onCreate
+and replace myPdfUrl with your actual pdf url</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	 <span class="k">new</span> <span class="nc">RetrievePDFStream</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">myPdfUrl</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>add below Async function in your activity outside onCreate</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RetrievePDFStream</span> <span class="kd">extends</span> <span class="nc">AsyncTask</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Void</span><span class="o">,</span> <span class="nc">InputStream</span><span class="o">&gt;</span> <span class="o">{</span>
+
+        <span class="nc">ProgressDialog</span> <span class="n">progressDialog</span><span class="o">;</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPreExecute</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="n">progressDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ProgressDialog</span><span class="o">(</span><span class="nc">LoadPdfActivity</span><span class="o">.</span><span class="na">this</span><span class="o">);</span>
+            <span class="n">progressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"Fetching attachment..."</span><span class="o">);</span>
+            <span class="n">progressDialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">"Please wait..."</span><span class="o">);</span>
+            <span class="n">progressDialog</span><span class="o">.</span><span class="na">setCanceledOnTouchOutside</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+            <span class="n">progressDialog</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="nc">InputStream</span> <span class="nf">doInBackground</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">strings</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+            <span class="k">try</span> <span class="o">{</span>
+
+                <span class="no">URL</span> <span class="n">urlx</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="n">strings</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+                <span class="nc">HttpURLConnection</span> <span class="n">urlConnection</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">urlx</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">urlConnection</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">()</span> <span class="o">==</span> <span class="mi">200</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedInputStream</span><span class="o">(</span><span class="n">urlConnection</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">());</span>
+
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="n">inputStream</span><span class="o">;</span>
+
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPostExecute</span><span class="o">(</span><span class="nc">InputStream</span> <span class="n">inputStream</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">pdfView</span><span class="o">.</span><span class="na">fromStream</span><span class="o">(</span><span class="n">inputStream</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">enableSwipe</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="c1">// allows to block changing pages using swipe</span>
+                    <span class="o">.</span><span class="na">swipeHorizontal</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">enableDoubletap</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">defaultPage</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">onError</span><span class="o">(</span><span class="k">new</span> <span class="nc">OnErrorListener</span><span class="o">()</span> <span class="o">{</span>
+                        <span class="nd">@Override</span>
+                        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nc">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+                            <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="nc">LoadPdfActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span><span class="s">"Something went wrong, please contact administrator."</span><span class="o">,</span><span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_LONG</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+                        <span class="o">}</span>
+                    <span class="o">})</span>
+                    <span class="o">.</span><span class="na">onPageError</span><span class="o">(</span><span class="k">new</span> <span class="nc">OnPageErrorListener</span><span class="o">()</span> <span class="o">{</span>
+                        <span class="nd">@Override</span>
+                        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPageError</span><span class="o">(</span><span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="nc">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+                            <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="nc">LoadPdfActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span><span class="s">"Something went wrong, please contact administrator."</span><span class="o">,</span><span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_LONG</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+                        <span class="o">}</span>
+                    <span class="o">})</span>
+                    <span class="o">.</span><span class="na">enableAnnotationRendering</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="c1">// render annotations (such as comments, colors or forms)</span>
+                    <span class="o">.</span><span class="na">password</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">scrollHandle</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">enableAntialiasing</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="c1">// improve rendering a little bit on low-res screens</span>
+                    <span class="c1">// spacing between pages in dp. To define spacing color, set view background</span>
+                    <span class="o">.</span><span class="na">spacing</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">load</span><span class="o">();</span>
+            <span class="n">progressDialog</span><span class="o">.</span><span class="na">dismiss</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+<p>Now run your app and see your PDF will load in your app</p>
+
+:ET

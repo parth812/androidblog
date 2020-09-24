@@ -1,0 +1,74 @@
+I"<ul id="markdown-toc">
+  <li><a href="#contact-me" id="markdown-toc-contact-me">Contact me</a></li>
+  <li><a href="#want-business-solution" id="markdown-toc-want-business-solution">Want business solution?</a></li>
+  <li><a href="#comments" id="markdown-toc-comments">Comments</a></li>
+</ul>
+
+<iframe src="https://githubbadge.appspot.com/parth812?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameborder="0"></iframe>
+
+<p>Working as an Andoid application developer.</p>
+
+<p>Having 4+ years of experience as Android Developer in analyzing, designing developing Android based enterprise application/Apps using Android SDK, ADB, DDMS, SQLite, Notification Services including Push, Location Based Services, Broadcast receiver &amp; Services, RESTful Web services, Beacon Interaction, HTTP, Json, Gson, Asynctask Fragments, Maps.</p>
+
+<p>Love to learn new things.
+Love to read codes.
+Love to explore new ideas and implement to grow my skills.</p>
+
+<p>I really like Bruno mars’s lyrics: Just the way you are.</p>
+
+<p>Also, learning is a very enjoyable process. Come on together!</p>
+
+<ul>
+  <li>2020 Project manager and sr.Android developer</li>
+  <li>2018 Promoted as sr.Android developer</li>
+  <li>2016.4 Joined as a jr.Android developer</li>
+  <li>2015.10 Started internship at iTechnotion</li>
+  <li>2014 - 2016 MCA in Information Technology from Gujarat Technological University</li>
+  <li>2011 - 2014 BCA in Information Technology from Gujarat University</li>
+</ul>
+
+<h2 id="contact-me">Contact me</h2>
+<ul>
+  <li>Portfolio：<a href="https://parth812.github.io/online-cv/">Parth Darji</a></li>
+  <li>GitHub：<a href="https://github.com/parth812">Parth Darji</a></li>
+  <li>LinkedIn：<a href="https://www.linkedin.com/in/parth-darji-376088a8/">Parth Darji</a></li>
+  <li>Upwork：<a href="https://www.upwork.com/o/profiles/users/~01bfb44fa5a465b3d1/">Parth Darji</a></li>
+  <li>WorknHire：<a href="https://worknhire.com/Contractor/Profile/parthdarji812">Parth Darji</a></li>
+  <li>email：Parthdarji812@gmail.com</li>
+  <li>ko-fi：<a href="https://ko-fi.com/parthdarji812">Parth Darji</a></li>
+  <li><a href="https://www.facebook.com/darjiparth812">Facebook</a></li>
+  <li><a href="https://twitter.com/gaohaoyang126">Twitter</a></li>
+</ul>
+
+<h2 id="want-business-solution">Want business solution?</h2>
+
+<p><strong>Please feel free to leave a comment or contact me by email if you want to build website &amp; mobile application for your business and boost your business.</strong></p>
+
+<h2 id="comments">Comments</h2>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function() {
+        this.page.url = 'http://localhost:4000/about/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/about/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//androidblog.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+:ET
